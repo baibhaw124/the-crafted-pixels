@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync } from "node:fs";
+﻿import { cpSync, existsSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const source = resolve("contact-page-integration/assets");
