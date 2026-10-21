@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vercel/
+.env
+.env.*
+!.env.example
+
+# Local backups and alternate package files
+*.bak
+/package1.json
+/package-lock1.json
+
+# Separate project with its own Git repository
+/khetrakshak-ai/

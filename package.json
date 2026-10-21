@@ -1,0 +1,14 @@
+{
+  "name": "cosmic-scroll-recreation",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build contact-page-integration --outDir ../dist --emptyOutDir && node scripts/copy-static-assets.js",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}

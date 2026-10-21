@@ -1,0 +1,422 @@
+/* TCP Nebula Glass — Design 05. Only affects navbar; hero gradient/animation untouched. */
+.tcp-nav-shell {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(calc(100% - 55px), 1510px);
+    margin-top: 18px;
+    font-family: inherit
+}
+
+#comp-lte8dpkb {
+    position: relative
+}
+
+.tcp-nebula-nav {
+    --nav-white: #f3f4f1;
+    --nav-cyan: #b8d8d3;
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 112px 1px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(18px, 2.4vw, 38px);
+    height: 82px !important;
+    min-height: 52px !important;
+    max-height: 62px !important;
+    padding: 8px 24px !important;
+    overflow: hidden;
+    border: 1px solid rgba(190, 220, 214, .58);
+    border-top: 1px solid rgba(225, 247, 241, .92);
+    border-radius: 999px;
+    color: var(--nav-white);
+    background-color: #062324;
+    background-image: radial-gradient(ellipse at 72% 115%, rgba(181, 218, 207, .18), transparent 24%), radial-gradient(ellipse at 78% 110%, rgba(225, 238, 230, .11), transparent 13%), linear-gradient(100deg, rgba(2, 19, 17, .91), rgba(5, 43, 39, .78) 42%, rgba(3, 29, 27, .88)), url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2200&q=90");
+    background-position: center, center, center, center 48%;
+    background-size: cover, cover, cover, cover;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .32), inset 0 -8px 28px rgba(143, 194, 184, .045), 0 8px 26px rgba(0, 0, 0, .12);
+    -webkit-backdrop-filter: blur(20px) saturate(115%);
+    backdrop-filter: blur(20px) saturate(115%)
+}
+
+.tcp-nebula-nav:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at 14% 100%, rgba(95, 183, 157, .15), transparent 27%), radial-gradient(ellipse at 84% 0%, rgba(125, 178, 158, .10), transparent 30%), linear-gradient(105deg, rgba(0, 18, 15, .25), transparent 45%, rgba(2, 24, 20, .28));
+    mix-blend-mode: screen
+}
+
+.tcp-nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    text-decoration: none
+}
+
+.tcp-nav-logo img {
+    display: block;
+    width: 100%;
+    max-width: 100px;
+    max-height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(100, 221, 255, .25))
+}
+
+.tcp-nav-divider {
+    height: 45px;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(237, 250, 255, .85), transparent)
+}
+
+.tcp-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: clamp(12px, 2.4vw, 38px);
+    min-width: 0
+}
+
+.tcp-nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    color: rgba(245, 251, 255, .88);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .19em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color .25s, text-shadow .25s
+}
+
+.tcp-nav-link:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+    width: 0;
+    height: 1px;
+    transform: translateX(-50%);
+    background: var(--nav-cyan);
+    box-shadow: 0 0 10px rgba(122, 233, 255, .9);
+    transition: width .25s
+}
+
+.tcp-nav-link:hover,
+.tcp-nav-link:focus-visible,
+.tcp-nav-link.is-active {
+    color: #fff;
+    text-shadow: 0 0 13px rgba(129, 232, 255, .4)
+}
+
+.tcp-nav-link:hover:after,
+.tcp-nav-link:focus-visible:after,
+.tcp-nav-link.is-active:after {
+    width: 58%
+}
+
+.tcp-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-width: 146px;
+    min-height: 32px;
+    padding: 0 22px;
+    box-sizing: border-box;
+    border: 1px solid rgba(207, 246, 255, .92);
+    border-radius: 999px;
+    color: #f7fcff;
+    background: rgba(116, 220, 242, .07);
+    box-shadow: inset 0 0 15px rgba(133, 232, 255, .08), 0 0 16px rgba(84, 215, 242, .08);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background .25s, box-shadow .25s, transform .25s
+}
+
+.tcp-nav-cta:hover,
+.tcp-nav-cta:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(130, 227, 245, .16);
+    box-shadow: inset 0 0 20px rgba(133, 232, 255, .14), 0 0 22px rgba(84, 215, 242, .2)
+}
+
+.tcp-nav-arrow {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0
+}
+
+.tcp-nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+    border: 1px solid rgba(207, 246, 255, .55);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .05);
+    cursor: pointer
+}
+
+.tcp-nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 6px 0;
+    background: #f5fbff;
+    transition: transform .2s
+}
+
+.tcp-nav-toggle[aria-expanded=true] span:first-child {
+    transform: translateY(3.5px) rotate(45deg)
+}
+
+.tcp-nav-toggle[aria-expanded=true] span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg)
+}
+
+/* Push the actual hero headline container below the navbar; Wix element ID is comp-lte8dpkh1. */
+#comp-lte8dpkh1 {
+    margin-top: clamp(104px, 7.2vw, 132px) !important
+}
+
+/* Subtle orbital accents: extra small moon and cloud haze, contained within the navbar. */
+.tcp-nav-shell {
+    isolation: isolate
+}
+
+.tcp-nav-shell:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: clamp(190px, 27vw, 410px);
+    top: 8px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .8;
+    background: radial-gradient(circle at 30% 26%, rgba(224, 247, 241, .95) 0%, rgba(125, 193, 184, .72) 9%, rgba(39, 105, 105, .95) 32%, rgba(4, 36, 39, .98) 68%, rgba(2, 18, 23, 1) 76%);
+    box-shadow: inset -7px -4px 10px rgba(0, 0, 0, .65), inset 3px 2px 5px rgba(204, 245, 238, .34), 0 0 14px rgba(100, 217, 206, .22)
+}
+
+/* A restrained nebula planet accent inspired by reference design 05. */
+.tcp-nebula-nav:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: clamp(155px, 19vw, 300px);
+    top: -43px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .58;
+    background: radial-gradient(circle at 31% 27%, rgba(210, 244, 239, .82) 0%, rgba(94, 164, 160, .48) 8%, rgba(19, 78, 80, .92) 31%, rgba(3, 35, 39, .98) 61%, rgba(2, 16, 22, 1) 73%);
+    box-shadow: inset -15px -7px 25px rgba(0, 0, 0, .6), inset 5px 4px 13px rgba(181, 231, 226, .28), 0 0 25px rgba(99, 209, 205, .15)
+}
+
+@media(max-width:1050px) {
+    #comp-lte8dpkh1 {
+        margin-top: clamp(100px, 10vw, 128px) !important
+    }
+
+    .tcp-nebula-nav:after {
+        right: 170px;
+        width: 125px;
+        height: 125px;
+        top: -32px
+    }
+
+    .tcp-nav-shell {
+        width: calc(100% - 16px);
+        top: 0
+    }
+
+    .tcp-nebula-nav {
+        grid-template-columns: 94px 1px minmax(0, 1fr) auto;
+        gap: 17px;
+        height: 74px !important;
+        min-height: 74px !important;
+        max-height: 74px !important;
+        padding: 8px 18px !important
+    }
+
+    .tcp-nav-logo img {
+        max-width: 78px;
+        max-height: 42px
+    }
+
+    .tcp-nav-links {
+        gap: 14px
+    }
+
+    .tcp-nav-link {
+        font-size: 9px;
+        letter-spacing: .13em
+    }
+
+    .tcp-nav-cta {
+        min-width: 137px;
+        min-height: 45px;
+        padding: 0 15px;
+        gap: 10px;
+        font-size: 9px
+    }
+}
+
+@media(max-width:760px) {
+    #comp-lte8dpkh1 {
+        margin-top: 104px !important
+    }
+
+    .tcp-nebula-nav:after {
+        right: 104px;
+        top: -27px;
+        width: 105px;
+        height: 105px;
+        opacity: .4
+    }
+
+    .tcp-nav-shell {
+        width: calc(100% - 12px);
+        top: 0
+    }
+
+    .tcp-nebula-nav {
+        grid-template-columns: 76px 1px 1fr auto;
+        gap: 12px;
+        height: 66px !important;
+        min-height: 66px !important;
+        max-height: 66px !important;
+        padding: 8px 12px 8px 16px !important;
+        border-radius: 30px
+    }
+
+    .tcp-nav-logo img {
+        max-width: 68px;
+        max-height: 38px
+    }
+
+    .tcp-nav-divider {
+        height: 34px
+    }
+
+    .tcp-nav-toggle {
+        display: block;
+        grid-column: 3;
+        justify-self: end
+    }
+
+    .tcp-nav-cta {
+        grid-column: 4;
+        min-width: 0;
+        min-height: 41px;
+        padding: 0 11px;
+        gap: 7px;
+        font-size: 8px;
+        letter-spacing: .1em
+    }
+
+    .tcp-nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 18px;
+        border: 1px solid rgba(177, 239, 255, .48);
+        border-radius: 24px;
+        background: rgba(3, 24, 31, .97);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, .3), 0 0 22px rgba(80, 218, 244, .1);
+        backdrop-filter: blur(20px)
+    }
+
+    .tcp-nav-links.is-open {
+        display: flex
+    }
+
+    .tcp-nav-link {
+        justify-content: center;
+        min-height: 46px;
+        font-size: 10px;
+        letter-spacing: .18em
+    }
+}
+
+@media(max-width:420px) {
+    .tcp-nebula-nav {
+        grid-template-columns: 56px 1px 1fr auto;
+        gap: 7px;
+        padding-inline: 8px
+    }
+
+    .tcp-nav-logo img {
+        max-width: 55px
+    }
+
+    .tcp-nav-cta {
+        padding: 0 8px;
+        gap: 5px
+    }
+
+    .tcp-nav-cta span:first-child {
+        letter-spacing: .05em
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .tcp-nav-link,
+    .tcp-nav-link:after,
+    .tcp-nav-cta,
+    .tcp-nav-toggle span {
+        transition: none !important
+    }
+}
+
+/* TCP astronaut idle hover */
+.tcp-astronaut-hover {
+  animation: tcpAstronautHover 4.5s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes tcpAstronautHover {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0, -10px, 0) rotate(-0.7deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(0.5deg);
+  }
+  75% {
+    transform: translate3d(0, -6px, 0) rotate(0.8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tcp-astronaut-hover {
+    animation: none;
+  }
+}

@@ -1,0 +1,855 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&family=Playfair+Display:ital,wght@1,500&display=swap");
+
+#minds {
+  --ink: #f3e3d0;
+  --muted: #b6a6c9;
+  --accent: #b200ed;
+  --card-w: 240px;
+  --card-h: 400px;
+}
+
+#minds * {
+  box-sizing: border-box;
+}
+
+#minds .tcp-minds-scene {
+  margin: 0;
+  background: #07050d;
+  color: var(--ink);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+#minds a {
+  color: inherit;
+}
+
+/* ---------- Page + space background ---------- */
+#minds .page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(7, 5, 13, .26), rgba(7, 5, 13, .46)),
+    radial-gradient(ellipse 55% 50% at 90% 28%, rgba(89, 35, 151, .42), transparent 62%),
+    radial-gradient(ellipse 40% 40% at 4% 72%, rgba(88, 35, 140, .34), transparent 65%),
+    radial-gradient(ellipse 70% 40% at 50% 118%, rgba(41, 35, 105, .38), transparent 60%),
+    url("../assets/novastra-nebula-bg.jpg") center / cover no-repeat #07050d;
+}
+
+#minds .sky {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#minds .planet-big {
+  position: absolute;
+  right: -210px;
+  top: 190px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background-image:
+    radial-gradient(circle at 28% 24%, rgba(255, 255, 255, .20) 0%, rgba(255, 255, 255, .05) 18%, transparent 34%),
+    radial-gradient(circle at 75% 77%, rgba(4, 2, 13, .91) 0%, rgba(4, 2, 13, .42) 38%, transparent 64%),
+    url("../assets/planet-06-magenta.jpg");
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center;
+  background-blend-mode: screen, multiply, normal;
+  box-shadow: inset -24px -18px 50px rgba(0, 0, 0, .78), inset 5px 4px 25px rgba(186, 97, 255, .14), 0 0 90px rgba(135, 57, 210, .36);
+}
+
+#minds .planet-big::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(209, 163, 255, .24);
+  background: radial-gradient(circle at 24% 22%, rgba(255, 255, 255, .09), transparent 35%),
+    radial-gradient(circle at 80% 79%, rgba(4, 2, 12, .78), transparent 60%);
+  box-shadow: inset -24px -18px 45px rgba(0, 0, 0, .64), 0 0 24px rgba(178, 0, 237, .14);
+}
+
+#minds .horizon {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -540px;
+  height: 660px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(147, 73, 217, .30), rgba(28, 13, 47, .92) 22%, #08050f 55%);
+  border-top: 1px solid rgba(174, 118, 222, .52);
+  box-shadow: 0 -8px 70px rgba(151, 66, 226, .34), inset 0 10px 40px rgba(160, 90, 220, .28);
+}
+
+#minds .side-note {
+  position: absolute;
+  z-index: 2;
+  font-size: 11px;
+  letter-spacing: .3em;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+#minds .side-note span {
+  display: block;
+}
+
+#minds .side-note.left {
+  left: 56px;
+  top: 186px;
+}
+
+#minds .side-note.right {
+  right: 56px;
+  top: 300px;
+  text-align: right;
+}
+
+#minds .side-note i {
+  display: block;
+  height: 1px;
+  margin-top: 16px;
+}
+
+#minds .side-note.left i {
+  width: 100px;
+  background: linear-gradient(90deg, rgba(177, 121, 228, .58), transparent);
+}
+
+#minds .side-note.right i {
+  width: 90px;
+  margin-left: auto;
+  background: linear-gradient(270deg, rgba(177, 121, 228, .58), transparent);
+}
+
+#minds .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 36px 56px 30px;
+}
+
+/* ---------- Header ---------- */
+#minds header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px 24px;
+}
+
+#minds .brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: .5em;
+}
+
+#minds .tagline {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: .34em;
+  color: var(--muted);
+}
+
+#minds nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#minds .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 134, 235, .62);
+  background: rgba(10, 5, 20, .42);
+  cursor: pointer;
+}
+
+#minds .cta {
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: #f3e5d5;
+  color: #21152e;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-decoration: none;
+}
+
+/* ---------- Title + deck ---------- */
+#minds main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+#minds h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 -0.3em;
+  padding: 0 .05em;
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(96px, 18vw, 270px);
+  line-height: .88;
+  letter-spacing: -.02em;
+  background: linear-gradient(180deg, #f0dffb 0%, #c7a9dd 52%, #73518f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, .55));
+}
+
+#minds .deck {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 0;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+/* ---------- Card ----------
+     .card  = the hit area (never transforms, so cursor maths stay stable)
+     .float = idle drift animation
+     .tilt  = the 3D-rotating surface
+     JS only sets: --nx --ny (cursor -1..1), --rx --ry (tilt deg), --gx --gy (glare position) */
+#minds .card {
+  position: relative;
+  top: var(--y);
+  z-index: var(--z);
+  flex: none;
+  width: var(--card-w);
+  height: var(--card-h);
+  margin: 0 -12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  --rot: var(--base);
+}
+
+#minds .card:focus-visible {
+  outline: 2px solid #d9b6ff;
+  outline-offset: 6px;
+}
+
+#minds .card.is-selected {
+  z-index: 12;
+}
+
+#minds .card.is-active {
+  z-index: 30;
+  --rot: calc(var(--base) * .2);
+}
+
+@keyframes tcpMindsDrift {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+#minds .float {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: tcpMindsDrift 7s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+#minds .tilt {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform:
+    translateY(var(--lift, 0px)) rotate(var(--rot)) perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--s, 1));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .55);
+  transition: transform 800ms cubic-bezier(.16, 1, .3, 1), box-shadow 600ms ease-out;
+}
+
+#minds .card.is-selected .tilt {
+  --lift: -12px;
+  --s: 1.03;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .6), 0 0 50px var(--card-halo, rgba(167, 83, 238, .28));
+}
+
+#minds .card.is-active .tilt {
+  --lift: -24px;
+  --s: 1.07;
+  box-shadow: calc(var(--nx, 0) * -22px) calc(34px - var(--ny, 0) * 12px) 60px rgba(0, 0, 0, .65), 0 0 70px var(--card-halo, rgba(176, 0, 237, .30));
+  transition: transform 160ms cubic-bezier(.2, .7, .2, 1), box-shadow 240ms ease-out;
+}
+
+#minds .face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--card-border, rgba(163, 101, 217, .30));
+  background:
+    radial-gradient(ellipse at 66% 22%, var(--card-glow, rgba(178, 0, 237, .22)) 0%, transparent 58%),
+    linear-gradient(172deg, var(--card-top, #1a0d28) 0%, var(--card-mid, #0b0712) 58%, var(--card-bottom, #06040b) 100%);
+  transition: border-color 300ms ease, background-color 300ms ease;
+}
+
+#minds .card.is-selected .face {
+  border-color: var(--card-border-strong, rgba(198, 126, 255, .9));
+}
+
+#minds .card.is-active .face {
+  border-color: var(--card-border-strong, rgba(190, 146, 245, .75));
+}
+
+#minds .face>svg,
+#minds .face>.planet,
+#minds .face>.ring {
+  position: absolute;
+  display: block;
+}
+
+#minds .face>svg {
+  left: 0;
+  top: 0;
+}
+
+/* parallax layers: move opposite the cursor, the figure moves with it */
+#minds .planet,
+#minds .ring,
+#minds .rocks {
+  transform: translate(calc(var(--nx, 0) * -10px), calc(var(--ny, 0) * -8px));
+  transition: transform 700ms ease;
+}
+
+#minds .ring {
+  border-radius: 50%;
+  border: 3px solid var(--card-rim, rgba(183, 122, 238, .76));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--card-rim, #B200ED) 20%, transparent);
+  transform: translate(calc(var(--nx, 0) * -10px), calc(var(--ny, 0) * -8px)) rotate(-14deg);
+}
+
+#minds .ring.front {
+  clip-path: inset(50% 0 0 0);
+}
+
+#minds .planet {
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  background-image:
+    radial-gradient(circle at 27% 23%, rgba(255, 255, 255, .34) 0%, rgba(255, 255, 255, .08) 19%, transparent 38%),
+    radial-gradient(circle at 75% 78%, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .28) 36%, transparent 62%),
+    var(--planet-texture, radial-gradient(circle at 30% 28%, #e2a5ff 0%, #7025aa 50%, #10071c 100%));
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center;
+  background-blend-mode: screen, multiply, normal;
+  box-shadow: inset -14px -10px 30px rgba(0, 0, 0, .68), inset 5px 4px 15px rgba(255, 255, 255, .08), 0 0 44px var(--glow);
+}
+
+#minds .figure {
+  transform: translate(calc(var(--nx, 0) * 6px), calc(var(--ny, 0) * 4px));
+  transition: transform 700ms ease;
+}
+
+#minds .card.is-active .planet,
+#minds .card.is-active .ring,
+#minds .card.is-active .rocks,
+#minds .card.is-active .figure {
+  transition-duration: 180ms;
+}
+
+#minds .fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  display: block;
+  background: linear-gradient(180deg, rgba(8, 4, 15, 0), rgba(8, 4, 15, .82) 42%, rgba(8, 4, 15, .97));
+}
+
+#minds .glare {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 300ms ease;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), color-mix(in srgb, var(--card-rim, #B200ED) 35%, white), color-mix(in srgb, var(--card-rim, #B200ED) 18%, transparent) 28%, transparent 56%);
+}
+
+#minds .card.is-active .glare {
+  opacity: var(--glare, 1);
+}
+
+/* text floats in front of the surface */
+#minds .top {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  display: block;
+  transform: translateZ(30px);
+  transition: transform 700ms ease;
+}
+
+#minds .info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  padding: 0 16px 18px;
+  transform: translateZ(40px);
+  transition: transform 700ms ease;
+}
+
+#minds .card.is-active .top {
+  transform: translateZ(52px);
+  transition-duration: 180ms;
+}
+
+#minds .card.is-active .info {
+  transform: translateZ(70px);
+  transition-duration: 180ms;
+}
+
+#minds .mind-no {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: #decaf3;
+}
+
+#minds .badge {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(190, 146, 245, .55);
+  background: rgba(10, 5, 20, .58);
+}
+
+#minds .role-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+#minds .role {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.02;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #f7e8d5;
+}
+
+#minds .role-row svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+#minds .rule {
+  display: block;
+  height: 1px;
+  margin: 10px 0 9px;
+  background: linear-gradient(90deg, var(--card-border-strong, rgba(174, 118, 222, .52)), transparent);
+}
+
+#minds .name {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: #f7e8d5;
+}
+
+#minds .bio {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #bdb0ce;
+  white-space: pre-line;
+}
+
+#minds .quote {
+  display: block;
+  margin-top: 9px;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #d8c4ef;
+}
+
+/* ---------- Footer ---------- */
+#minds footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 40px;
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: var(--muted);
+}
+
+#minds .status {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+#minds .status .line {
+  flex: 1 1 40px;
+  height: 1px;
+}
+
+#minds .status .line.l {
+  background: linear-gradient(90deg, transparent, rgba(157, 102, 211, .42));
+}
+
+#minds .status .line.r {
+  background: linear-gradient(270deg, transparent, rgba(157, 102, 211, .42));
+}
+
+#minds .status svg {
+  flex: none;
+}
+
+#minds #status-text {
+  text-align: center;
+}
+
+#minds #status-text.picked {
+  color: var(--ink);
+}
+
+@media (max-width: 1100px) {
+  #minds .side-note {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  #minds .content {
+    padding: 24px 20px;
+  }
+
+  #minds .planet-big {
+    right: -300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #minds .float {
+    animation: none;
+  }
+}
+
+
+/* ===== Section 04 integration and live reveal ===== */
+#minds.tcp-minds-transition {
+  position: relative;
+  display: block;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #030208;
+  color: #f3e5d5;
+}
+
+#minds .tcp-minds-transition__base {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 62% 35% at 50% 100%, rgba(105, 36, 164, .22), transparent 72%), #030208;
+}
+
+#minds .tcp-minds-real-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  clip-path: circle(var(--tcp-minds-reveal-radius, 0px) at 50% 100%);
+  will-change: clip-path;
+}
+
+#minds.tcp-minds-transition--fallback .tcp-minds-real-content,
+#minds.tcp-minds-transition--fallback .tcp-minds-transition__base {
+  clip-path: none !important;
+}
+
+#minds .tcp-minds-scene.page {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+#minds .tcp-minds-section-index {
+  position: absolute;
+  z-index: 5;
+  top: 24px;
+  left: clamp(20px, 3.5vw, 56px);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+  letter-spacing: .28em;
+  color: #decaf3;
+  text-transform: uppercase;
+}
+
+#minds .tcp-minds-section-index__rule {
+  width: clamp(80px, 16vw, 230px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(178, 0, 237, .8), rgba(174, 121, 226, .12));
+}
+
+#minds .content {
+  padding: 62px clamp(20px, 3.5vw, 56px) 24px;
+}
+
+#minds main {
+  min-width: 0;
+}
+
+#minds .deck {
+  max-width: none;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0;
+}
+
+#minds .card {
+  flex-shrink: 0;
+}
+
+#minds .person-photo {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 72%;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 15px 15px 0 0;
+  opacity: .96;
+  filter: saturate(.92) contrast(1.04);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+  pointer-events: none;
+}
+
+#minds .person-photo--missing {
+  display: none;
+}
+
+#minds .face>.planet {
+  opacity: .84;
+}
+
+#minds .face>svg {
+  z-index: 1;
+}
+
+#minds .face>.planet,
+#minds .face>.ring,
+#minds .face>.rocks {
+  z-index: 2;
+}
+
+#minds .person-photo {
+  z-index: 4;
+}
+
+#minds .fade {
+  z-index: 5;
+}
+
+#minds .glare {
+  z-index: 6;
+}
+
+#minds .top,
+#minds .info {
+  z-index: 7;
+}
+
+#minds .side-note,
+#minds .content,
+#minds .tcp-minds-section-index {
+  pointer-events: auto;
+}
+
+@media (max-width: 1280px) {
+  #minds .content {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  #minds .card {
+    margin-left: -20px;
+    margin-right: -20px;
+    transform: scale(.88);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 900px) {
+  #minds .content {
+    padding: 70px 18px 24px;
+  }
+
+  #minds .deck {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0 12px 18px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(178, 0, 237, .55) transparent;
+  }
+
+  #minds .card {
+    transform: scale(.82);
+    transform-origin: center center;
+    margin-left: -31px;
+    margin-right: -31px;
+  }
+
+  #minds h1 {
+    font-size: clamp(76px, 16vw, 150px);
+  }
+
+  #minds footer {
+    letter-spacing: .12em;
+  }
+
+  #minds .side-note.right {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #minds .tcp-minds-real-content {
+    clip-path: none !important;
+  }
+
+  #minds .float {
+    animation: none;
+  }
+}
+
+
+/* ===== Section 04 composition balance (layout only; animation styles unchanged) ===== */
+#minds.tcp-minds-transition {
+  min-height: 106vh;
+  min-height: 106svh;
+  scroll-margin-top: 0;
+}
+
+#minds .tcp-minds-real-content,
+#minds .tcp-minds-scene.page,
+#minds .content {
+  min-height: 106vh;
+  min-height: 106svh;
+}
+
+/* Keep the reveal origin at the visible viewport's bottom even though the section is slightly taller. */
+#minds .tcp-minds-real-content {
+  clip-path: circle(var(--tcp-minds-reveal-radius, 0px) at 50% calc(100% - 6svh));
+}
+
+/* Raise the title modestly; the taller section naturally moves the card row down a little. */
+#minds h1 {
+  transform: translateY(-62px);
+}
+
+#minds .content {
+  padding-top: 62px;
+  padding-bottom: 20px;
+}
+
+#minds .deck {
+  transform: translateY(3svh);
+}
+
+#minds footer {
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+
+  #minds .tcp-minds-transition__base,
+  #minds .tcp-minds-real-content,
+  #minds .tcp-minds-scene.page,
+  #minds .content {
+    min-height: 106vh;
+    min-height: 106svh;
+  }
+
+  #minds .content {
+    padding-top: 70px;
+    padding-bottom: 18px;
+  }
+
+  #minds h1 {
+    transform: translateY(-34px);
+  }
+
+  #minds .deck {
+    transform: translateY(20px);
+  }
+}

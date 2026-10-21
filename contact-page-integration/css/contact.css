@@ -1,0 +1,440 @@
+:root {
+  --ink: #f5f7ff;
+  --navy: #080d1a;
+  --cyan: #64eaff;
+  --ember: #ff9868;
+
+  --font: "DM Sans", sans-serif;
+  --display: "Space Grotesk", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  font-family: var(--font);
+  background-color: var(--navy);
+
+  /* Background image: 1.jpeg in the project root */
+  background-image:
+    linear-gradient(115deg,
+      rgba(4, 8, 19, 0.42),
+      rgba(4, 8, 19, 0.62)),
+    url("../1.jpeg");
+
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Logo at the top-left */
+
+.topbar {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  line-height: 0;
+}
+.brand img {
+  display: block;
+  width: 100px;
+  height: auto;
+  max-height: 65px;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Centered contact options */
+.brand:hover img {
+  transform: scale(1.03);
+}
+
+.contact-main {
+  min-height: calc(100vh - 400px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 18px 70px;
+}
+
+/* Replace the existing .contact-card styles with this */
+.contact-card {
+  min-height: 420px;
+  width: min(100%, 560px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+  padding: 30px 38px;
+
+  border: 1px solid rgba(177, 218, 255, 0.2);
+  border-radius: 15px;
+
+  background: linear-gradient(145deg,
+      rgba(8, 15, 31, 0.86),
+      rgba(7, 10, 21, 0.84));
+
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.4),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
+}
+
+/* Make all four contact options evenly spaced */
+.social-link {
+  --glow: rgba(100, 234, 255, 0.55);
+
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 72px;
+  flex: 0 0 72px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(191, 215, 255, 0.24);
+  border-radius: 12px;
+
+  color: #dce7f7;
+  background: rgba(255, 255, 255, 0.035);
+
+  font-size: 15px;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Keep the icon in a consistent position */
+.social-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+  color: var(--cyan);
+  background: rgba(100, 234, 255, 0.09);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Distribute the text evenly across the remaining width */
+.social-copy {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  text-align: left;
+  white-space: nowrap;
+}
+
+.social-copy strong {
+  margin-left: auto;
+  text-align: right;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Remove the arrow if it exists in the HTML */
+.social-arrow {
+  display: none !important;
+}
+
+/* Mobile layout */
+@media (max-width: 520px) {
+  .contact-main {
+    min-height: calc(100vh - 82px);
+    padding: 12px 15px 36px;
+  }
+
+  .contact-card {
+    width: 100%;
+    min-height: 390px;
+    padding: 22px 16px;
+    gap: 14px;
+    border-radius: 12px;
+  }
+
+  .social-link {
+    min-height: 62px;
+    flex-basis: 62px;
+    gap: 12px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .social-copy {
+    gap: 8px;
+  }
+}
+
+/* Individual social links */
+
+.social-link.instagram {
+  --glow: rgba(255, 111, 173, 0.68);
+}
+
+.social-link.linkedin {
+  --glow: rgba(91, 167, 255, 0.7);
+}
+
+.social-link.whatsapp {
+  --glow: rgba(83, 242, 177, 0.65);
+}
+
+.social-link.email {
+  --glow: rgba(255, 152, 104, 0.68);
+}
+
+/* Animated neon border */
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+
+  padding: 1.5px;
+  border-radius: inherit;
+  opacity: 0;
+
+  background: linear-gradient(115deg,
+      var(--cyan),
+      var(--ember),
+      #8b73ff,
+      var(--cyan));
+
+  background-size: 300% 300%;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition: opacity 0.25s ease;
+}
+
+/* Soft glow surrounding the border */
+
+.social-link::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -3px;
+
+  border-radius: 12px;
+  background: var(--glow);
+  filter: blur(13px);
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: #fff;
+  border-color: transparent;
+  background: rgba(9, 18, 34, 0.94);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.social-link:hover::before,
+.social-link:focus-visible::before {
+  opacity: 1;
+  animation: border-light 2.5s linear infinite;
+}
+
+.social-link:hover::after,
+.social-link:focus-visible::after {
+  opacity: 0.55;
+}
+
+/* Icon container */
+
+.instagram .social-icon {
+  color: #ff9cc8;
+  background: rgba(255, 156, 200, 0.1);
+}
+
+.linkedin .social-icon {
+  color: #91c6ff;
+  background: rgba(134, 189, 255, 0.1);
+}
+
+.whatsapp .social-icon {
+  color: #70f0b6;
+  background: rgba(104, 240, 182, 0.1);
+}
+
+.email .social-icon {
+  color: #ffad82;
+  background: rgba(255, 152, 104, 0.1);
+}
+
+.social-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-icon .icon-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.08);
+}
+
+/* Highlighted text */
+.social-copy strong {
+  color: var(--cyan);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(100, 234, 255, 0.55);
+  text-underline-offset: 4px;
+  transition: color 0.25s ease;
+  margin-left: auto;
+  text-align: right;
+}
+
+.instagram .social-copy strong {
+  color: #ffacd0;
+  text-decoration-color: rgba(255, 172, 208, 0.6);
+}
+
+.linkedin .social-copy strong {
+  color: #a2ceff;
+  text-decoration-color: rgba(162, 206, 255, 0.6);
+}
+
+.whatsapp .social-copy strong {
+  color: #80f4bf;
+  text-decoration-color: rgba(128, 244, 191, 0.6);
+}
+
+.email .social-copy strong {
+  color: #ffb28b;
+  text-decoration-color: rgba(255, 178, 139, 0.6);
+}
+
+/* Arrow animation */
+
+
+@keyframes border-light {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Mobile layout */
+
+@media (max-width: 520px) {
+  .topbar {
+    height: 75px;
+    padding: 0 20px;
+  }
+
+  .brand img {
+    width: 110px;
+    height: 48px;
+  }
+
+  .contact-main {
+    min-height: calc(100vh - 82px);
+    padding: 12px 15px 36px;
+  }
+
+  .contact-card {
+    padding: 20px 16px;
+    gap: 11px;
+    border-radius: 12px;
+  }
+
+  .social-link {
+    min-height: 55px;
+    padding: 0 13px;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,1061 @@
+/* TCP OUTPUT SECTION — scoped styles only; no global body/html rules. */
+#projects.tcp-output-section {
+  --tcp-output-lime: #b200ed;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 640px;
+  overflow: hidden;
+  background: #000;
+  color: #f4f4f4;
+}
+
+#projects .tcp-output-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+}
+
+/* Section-local space image, hidden until the flash plays */
+#projects .flash-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #000;
+  background-image: url("../assets/hug4.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+#projects .flash-image.play {
+  animation: tcpOutputFlashImage 2.8s ease-out forwards;
+}
+
+/* Image: pops in blown-out bright, then settles to normal */
+@keyframes tcpOutputFlashImage {
+  0% {
+    opacity: 0;
+    filter: brightness(1);
+  }
+
+  8% {
+    opacity: 1;
+    filter: brightness(6) contrast(1.4);
+  }
+
+  20% {
+    opacity: 1;
+    filter: brightness(3) contrast(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    filter: brightness(1) contrast(1);
+  }
+}
+
+/* White flash layer on top, like a camera bulb */
+#projects .flash-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#projects .flash-overlay.play {
+  animation: tcpOutputFlashOverlay 2.6s ease-out forwards;
+}
+
+@keyframes tcpOutputFlashOverlay {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Carousel sits centered over the image */
+#projects #carousel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 560px;
+  max-height: 100%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-family: inherit;
+}
+
+#projects .flex-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: contain;
+  outline: none;
+}
+
+#projects .flex-carousel[data-hover='open'] {
+  cursor: zoom-in;
+}
+
+#projects .flex-carousel[data-hover='close'] {
+  cursor: zoom-out;
+}
+
+#projects .flex-carousel[data-dragging] {
+  cursor: grabbing;
+}
+
+#projects .flex-carousel:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(128, 128, 140, 0.55);
+}
+
+#projects .flex-carousel__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% + var(--flex-carousel-half) * var(--flex-carousel-lift, 1) + 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  pointer-events: none;
+  text-align: center;
+  animation: tcp-output-carousel-reveal 900ms ease both;
+}
+
+#projects .flex-carousel__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  animation: tcp-output-carousel-title 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#projects .flex-carousel__subtitle {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+#projects .flex-carousel__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+  transition: opacity 400ms ease;
+}
+
+#projects .flex-carousel__count[data-hidden] {
+  opacity: 0;
+}
+
+#projects .flex-carousel__digits {
+  display: inline-flex;
+}
+
+#projects .flex-carousel__digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+#projects .flex-carousel__reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#projects .flex-carousel__reel span {
+  height: 1em;
+}
+
+#projects .flex-carousel__slash {
+  opacity: 0.6;
+}
+
+#projects .flex-carousel__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes tcp-output-carousel-title {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tcp-output-carousel-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  #projects .flex-carousel__caption,
+  #projects .flex-carousel__title {
+    animation: none;
+  }
+
+  #projects .flex-carousel__reel {
+    transition: none;
+  }
+}
+
+
+
+/* Small section label, matching the rest of The Crafted Pixels site. */
+#projects .tcp-output-kicker {
+  position: absolute;
+  z-index: 5;
+  top: 28px;
+  left: clamp(18px, 2.4vw, 38px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #b200ed;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#projects .tcp-output-kicker__number {
+  opacity: .82;
+}
+
+#projects .tcp-output-kicker__rule {
+  display: block;
+  width: clamp(70px, 15vw, 235px);
+  height: 1px;
+  background: #b200ed;
+}
+
+#projects .tcp-output-stage {
+  height: 100%;
+  min-height: 100%;
+}
+
+#projects #carousel {
+  height: min(560px, 78svh);
+  min-height: 430px;
+  max-height: calc(100% - 86px);
+  z-index: 2;
+}
+
+#projects .tcp-output-controls {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 3.4vw, 54px);
+  pointer-events: none;
+}
+
+#projects .tcp-output-arrow {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, .42);
+  border-radius: 50%;
+  background: rgba(5, 7, 9, .76);
+  color: #fff;
+  font: inherit;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 220ms ease, border-color 220ms ease, background 220ms ease, transform 220ms ease;
+  backdrop-filter: blur(10px);
+}
+
+#projects .tcp-output-arrow:hover,
+#projects .tcp-output-arrow:focus-visible {
+  color: #050505;
+  background: var(--tcp-output-lime);
+  border-color: var(--tcp-output-lime);
+  transform: scale(1.06);
+  outline: none;
+}
+
+#projects .flex-carousel__caption {
+  z-index: 4;
+  gap: 7px;
+  color: #f6f6f6;
+  font-family: inherit;
+}
+
+#projects .flex-carousel__title {
+  font-family: inherit;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 600;
+}
+
+#projects .flex-carousel__subtitle {
+  color: rgba(255, 255, 255, .62);
+}
+
+#projects .flex-carousel__count {
+  color: rgba(255, 255, 255, .8);
+}
+
+@media (max-width: 760px) {
+  #projects.tcp-output-section {
+    min-height: 580px;
+  }
+
+  #projects .tcp-output-kicker {
+    top: 22px;
+    left: 16px;
+    gap: 9px;
+    font-size: 11px;
+  }
+
+  #projects .tcp-output-kicker__rule {
+    width: 58px;
+  }
+
+  #projects #carousel {
+    height: min(500px, 76svh);
+    min-height: 360px;
+    max-height: calc(100% - 70px);
+  }
+
+  #projects .tcp-output-controls {
+    padding: 0 10px;
+  }
+
+  #projects .tcp-output-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  #projects .flash-image.play,
+  #projects .flash-overlay.play {
+    animation-duration: .01ms;
+  }
+
+  #projects .tcp-output-arrow {
+    transition: none;
+  }
+}
+
+/* Final integration safeguards: everything is scoped to The Output only. */
+#projects.tcp-output-section {
+  isolation: isolate;
+  contain: paint;
+}
+
+#projects .flash-image {
+  pointer-events: none;
+}
+
+#projects .tcp-output-carousel-host {
+  z-index: 3;
+  display: block;
+}
+
+#projects .tcp-output-carousel-host canvas {
+  position: absolute;
+  inset: 0;
+}
+
+#projects .flex-carousel__caption {
+  top: auto;
+  bottom: 16px;
+}
+
+@media (max-height: 680px) and (min-width: 761px) {
+  #projects #carousel {
+    height: min(470px, 76svh);
+    min-height: 350px;
+    max-height: calc(100% - 82px);
+  }
+}
+
+
+/* Project title, description and link — Output section only. */
+#projects .tcp-output-project-info {
+  position: absolute;
+  z-index: 7;
+  left: clamp(24px, 5vw, 80px);
+  right: clamp(24px, 5vw, 80px);
+  bottom: clamp(22px, 3.4vh, 40px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  color: #f6f6f6;
+  pointer-events: none;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
+}
+
+#projects .tcp-output-project-copy {
+  min-width: 0;
+  max-width: min(70%, 850px);
+}
+
+#projects .tcp-output-project-category {
+  margin: 0 0 10px;
+  color: var(--tcp-output-lime);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .17em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+#projects .tcp-output-project-title {
+  margin: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: .98;
+  overflow-wrap: anywhere;
+}
+
+#projects .tcp-output-project-description {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, .82);
+  font-family: inherit;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+#projects .tcp-output-project-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  pointer-events: auto;
+}
+
+#projects .tcp-output-project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 19px;
+  border: 1px solid var(--tcp-output-lime);
+  border-radius: 999px;
+  background: var(--tcp-output-lime);
+  color: #080a05;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .015em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  text-shadow: none;
+  transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+  cursor: pointer;
+}
+
+#projects .tcp-output-project-link:not(.is-unavailable):hover,
+#projects .tcp-output-project-link:not(.is-unavailable):focus-visible {
+  transform: translateY(-2px);
+  background: #fff;
+  border-color: #fff;
+  outline: none;
+}
+
+#projects .tcp-output-project-link.is-unavailable {
+  background: rgba(5, 7, 9, .72);
+  border-color: rgba(255, 255, 255, .42);
+  color: rgba(255, 255, 255, .7);
+  cursor: default;
+}
+
+#projects .tcp-output-project-counter {
+  color: rgba(255, 255, 255, .82);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .7);
+}
+
+/* The title panel stays below the rectangular previews on compact screens. */
+@media (max-width: 760px) {
+  #projects #carousel {
+    height: min(430px, 57svh);
+    min-height: 300px;
+    max-height: calc(100% - 185px);
+    top: 43%;
+  }
+
+  #projects .tcp-output-project-info {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  #projects .tcp-output-project-copy {
+    max-width: 100%;
+  }
+
+  #projects .tcp-output-project-category {
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+
+  #projects .tcp-output-project-title {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  #projects .tcp-output-project-description {
+    margin-top: 7px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  #projects .tcp-output-project-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #projects .tcp-output-project-link {
+    min-height: 40px;
+    padding: 0 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 680px) and (min-width: 761px) {
+  #projects .tcp-output-project-info {
+    bottom: 15px;
+  }
+
+  #projects .tcp-output-project-title {
+    font-size: clamp(32px, 3.4vw, 44px);
+  }
+
+  #projects .tcp-output-project-description {
+    margin-top: 6px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #projects .tcp-output-project-link {
+    transition: none;
+  }
+}
+
+
+/* Project detail entry point: keep only title + domain visible on the main scene. */
+#projects .tcp-output-project-description {
+  display: none !important;
+}
+
+#projects .tcp-output-details-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 17px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #b200ed;
+  background: transparent;
+  color: #f5f5f5;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  padding-bottom: 7px;
+  transition: color 180ms ease, border-color 180ms ease, gap 180ms ease;
+}
+
+#projects .tcp-output-details-trigger:hover,
+#projects .tcp-output-details-trigger:focus-visible {
+  color: var(--tcp-output-lime);
+  gap: 15px;
+  outline: none;
+  border-color: var(--tcp-output-lime);
+}
+
+#projects .tcp-output-project-info {
+  pointer-events: none;
+}
+
+#projects .tcp-output-project-actions {
+  pointer-events: auto;
+}
+
+#projects .tcp-output-details[hidden] {
+  display: none !important;
+}
+
+#projects .tcp-output-details {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 60px);
+  color: #f4f4f4;
+}
+
+#projects .tcp-output-details__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(1, 2, 5, .82);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+}
+
+#projects .tcp-output-details__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  max-height: min(82vh, 760px);
+  overflow: auto;
+  padding: clamp(24px, 4vw, 48px);
+  background: rgba(5, 7, 10, .96);
+  border: 1px solid #b200ed;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, .55);
+  outline: none;
+  animation: tcp-output-details-in 360ms cubic-bezier(.2, .75, .2, 1) both;
+}
+
+#projects .tcp-output-details__close {
+  display: block;
+  margin: 0 0 28px auto;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: transparent;
+  color: #f4f4f4;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .12em;
+  cursor: pointer;
+}
+
+#projects .tcp-output-details__close span {
+  color: var(--tcp-output-lime);
+  font-size: 18px;
+  padding-left: 6px;
+}
+
+#projects .tcp-output-details__category,
+#projects .tcp-output-details__eyebrow {
+  margin: 0 0 12px;
+  color: var(--tcp-output-lime);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+#projects .tcp-output-details__title {
+  margin: 0;
+  color: #f7f7f7;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 650;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+#projects .tcp-output-details__description {
+  margin: 18px 0 30px;
+  max-width: 660px;
+  color: rgba(245, 245, 245, .83);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.65;
+}
+
+#projects .tcp-output-details__features {
+  border-top: 1px solid rgba(255, 255, 255, .18);
+  padding-top: 24px;
+}
+
+#projects .tcp-output-details__features ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: rgba(245, 245, 245, .88);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#projects .tcp-output-details__features li::marker {
+  color: var(--tcp-output-lime);
+}
+
+#projects .tcp-output-details__stack-wrap {
+  margin-top: 26px;
+}
+
+#projects .tcp-output-details__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#projects .tcp-output-tech-chip {
+  border: 1px solid rgba(255, 255, 255, .23);
+  border-radius: 999px;
+  padding: 7px 11px;
+  color: rgba(245, 245, 245, .9);
+  font-size: 12px;
+}
+
+#projects .tcp-output-details__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+#projects .tcp-output-details__links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--tcp-output-lime);
+  background: var(--tcp-output-lime);
+  color: #070900;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+
+#projects .tcp-output-details__links a[hidden] {
+  display: none !important;
+}
+
+#projects .tcp-output-details__links a:hover,
+#projects .tcp-output-details__links a:focus-visible {
+  background: #f8f8f8;
+  border-color: #f8f8f8;
+  outline: none;
+}
+
+@keyframes tcp-output-details-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width:760px) {
+  #projects .tcp-output-details {
+    padding: 12px;
+  }
+
+  #projects .tcp-output-details__dialog {
+    max-height: 88vh;
+    padding: 23px 20px;
+  }
+
+  #projects .tcp-output-details__close {
+    margin-bottom: 20px;
+  }
+
+  #projects .tcp-output-details__description {
+    margin: 14px 0 22px;
+    font-size: 14px;
+  }
+
+  #projects .tcp-output-details__features ul {
+    font-size: 13px;
+  }
+
+  #projects .tcp-output-details__links {
+    flex-direction: column;
+  }
+
+  #projects .tcp-output-details__links a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #projects .tcp-output-details__dialog {
+    animation: none;
+  }
+
+  #projects .tcp-output-details-trigger {
+    transition: none;
+  }
+}
+
+
+/* ---------- Targeted fixes: transition, modal controls, theme ---------- */
+#projects.tcp-output-section {
+  color: #f4f4f4;
+  font-family: inherit;
+  background: #050609;
+}
+
+#projects .tcp-output-stage {
+  z-index: 3;
+}
+
+#projects .flash-image {
+  z-index: 0;
+}
+
+#projects .flash-overlay {
+  z-index: 2;
+}
+
+/* White cloud/soft-page transition at the top of Section 03.
+   The space image belongs only to #projects; this layer blends in from Section 02. */
+#projects .tcp-output-cloud-transition {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(230px, 39vh, 460px);
+  pointer-events: none;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse at 11% 14%, rgba(255, 255, 255, .94) 0%, rgba(255, 255, 255, .54) 23%, rgba(255, 255, 255, 0) 56%),
+    radial-gradient(ellipse at 43% 5%, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .58) 25%, rgba(255, 255, 255, 0) 62%),
+    radial-gradient(ellipse at 84% 20%, rgba(255, 255, 255, .78) 0%, rgba(255, 255, 255, .34) 23%, rgba(255, 255, 255, 0) 58%),
+    linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, .97) 10%, rgba(255, 255, 255, .76) 32%, rgba(255, 255, 255, .36) 61%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(.4px);
+  transform: translateY(0);
+  will-change: opacity, transform;
+}
+
+#projects .tcp-output-cloud-transition.play {
+  animation: tcpOutputCloudFade 2.25s cubic-bezier(.22, .7, .2, 1) forwards;
+}
+
+@keyframes tcpOutputCloudFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  32% {
+    opacity: .9;
+  }
+
+  70% {
+    opacity: .32;
+    transform: translateY(-7px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+}
+
+/* Keep the same theme font; use the site's off-white and neon-lime palette. */
+#projects .tcp-output-kicker,
+#projects .tcp-output-project-info,
+#projects .tcp-output-details,
+#projects .tcp-output-details__dialog,
+#projects .tcp-output-details__close,
+#projects .tcp-output-details__description,
+#projects .tcp-output-details__features ul,
+#projects .tcp-output-details__links a,
+#projects .tcp-output-tech-chip {
+  font-family: inherit;
+}
+
+#projects .tcp-output-details {
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+#projects .tcp-output-details__backdrop {
+  z-index: 0;
+  pointer-events: auto;
+}
+
+#projects .tcp-output-details__dialog {
+  z-index: 1;
+  pointer-events: auto;
+  color: #f4f4f4;
+  background: rgba(5, 7, 10, .97);
+}
+
+#projects .tcp-output-details__title {
+  color: #f4f4f4;
+}
+
+#projects .tcp-output-details__description,
+#projects .tcp-output-details__features ul {
+  color: rgba(244, 244, 244, .86);
+}
+
+#projects .tcp-output-details__category,
+#projects .tcp-output-details__eyebrow,
+#projects .tcp-output-details__close span {
+  color: var(--tcp-output-lime);
+}
+
+#projects .tcp-output-details__close {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#projects .tcp-output-details__links {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+#projects .tcp-output-details__links a {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+  cursor: pointer;
+  color: #070900;
+  background: var(--tcp-output-lime);
+  border-color: var(--tcp-output-lime);
+}
+
+#projects .tcp-output-details__links a[hidden] {
+  display: none !important;
+}
+
+#projects .tcp-output-details__links a:hover,
+#projects .tcp-output-details__links a:focus-visible {
+  color: #070900;
+  background: #fff;
+  border-color: #fff;
+}
+
+/* .tcp-output-project-info is a non-interactive overlay; explicitly re-enable its title button. */
+#projects .tcp-output-project-copy,
+#projects .tcp-output-details-trigger {
+  pointer-events: auto;
+}
+
+#projects .tcp-output-carousel-host {
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #projects .tcp-output-cloud-transition.play {
+    animation-duration: .01ms;
+  }
+}
+
+
+
+/* Output carousel: native transparent hit areas keep every preview clickable.
+   The WebGL engine animates the hovered card forward; no visual layout change otherwise. */
+#projects .flex-carousel__hit-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  overflow: visible;
+}
+
+#projects .flex-carousel__hit-target {
+  position: absolute;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+#projects .flex-carousel__hit-target:focus-visible {
+  outline: 2px solid #B200ED;
+  outline-offset: -3px;
+}
+
+#projects .tcp-output-carousel-host[data-card-hover="true"] {
+  cursor: pointer;
+}

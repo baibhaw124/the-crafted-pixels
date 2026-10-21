@@ -1,0 +1,95 @@
+/* TCP FOOTER ONLY — isolated from the hero and sections 02–04. */
+    #comp-lte8dpz29.tcp-footer {
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      min-height: clamp(190px, 27vh, 310px);
+      padding: clamp(30px, 4vw, 62px) clamp(22px, 4.2vw, 72px) clamp(24px, 3vw, 42px);
+      overflow: hidden;
+      color: #f4eff8;
+      background:
+        radial-gradient(ellipse at 88% 15%, rgba(178, 0, 237, .16) 0%, rgba(178, 0, 237, 0) 38%),
+        radial-gradient(ellipse at 12% 100%, rgba(80, 48, 127, .15) 0%, rgba(80, 48, 127, 0) 44%),
+        #050505;
+      border-top: 1px solid rgba(230, 210, 255, .22);
+      isolation: isolate;
+    }
+    #comp-lte8dpz29.tcp-footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .35;
+      background-image: radial-gradient(circle at 1px 1px, rgba(242, 226, 255, .52) 1px, transparent 1.6px);
+      background-size: 82px 74px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+    #comp-lte8dpz29 .tcp-footer__inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    #comp-lte8dpz29 .tcp-footer__brand,
+    #comp-lte8dpz29 .tcp-footer__signature { min-width: 0; }
+    #comp-lte8dpz29 .tcp-footer__eyebrow {
+      margin: 0 0 15px;
+      color: #c89bf2;
+      font: 600 10px/1.4 Arial, Helvetica, sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    #comp-lte8dpz29 .tcp-footer__copyright {
+      margin: 0;
+      color: rgba(244, 239, 248, .78);
+      font: 400 clamp(12px, 1vw, 14px)/1.7 Arial, Helvetica, sans-serif;
+      letter-spacing: .035em;
+    }
+    #comp-lte8dpz29 .tcp-footer__signature-label {
+      display: block;
+      margin: 0 0 10px;
+      color: rgba(244, 239, 248, .48);
+      font: 600 10px/1.4 Arial, Helvetica, sans-serif;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+    #comp-lte8dpz29 .tcp-footer__signature-line {
+      margin: 0;
+      color: #f4eff8;
+      font: 400 clamp(18px, 2vw, 27px)/1.25 Georgia, 'Times New Roman', serif;
+      letter-spacing: .015em;
+      text-align: right;
+    }
+    #comp-lte8dpz29 .tcp-footer__heart {
+      display: inline-block;
+      margin: 0 .12em;
+      color: #b200ed;
+      text-shadow: 0 0 18px rgba(178, 0, 237, .48);
+    }
+    #comp-lte8dpz29 .tcp-footer__tcp {
+      color: #d8b4f4;
+      letter-spacing: .08em;
+    }
+    @media (max-width: 640px) {
+      #comp-lte8dpz29.tcp-footer {
+        min-height: 220px;
+        padding: 30px 22px 25px;
+      }
+      #comp-lte8dpz29 .tcp-footer__inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+      }
+      #comp-lte8dpz29 .tcp-footer__signature-label,
+      #comp-lte8dpz29 .tcp-footer__signature-line { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #comp-lte8dpz29.tcp-footer::before { scroll-behavior: auto; }
+    }

@@ -1,0 +1,524 @@
+/* TCP — What We Are: keep the original teal / off-white visual language */
+#comp-lte8dpln {
+  position: relative !important;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  color: #F5F4F3;
+  background: linear-gradient(180deg, #0b1918 0%, #173a37 48%, #102927 100%) !important;
+}
+
+#comp-lte8dpln>.QG9w8P {
+  z-index: -1;
+}
+
+#comp-lte8dpln .tcp-what-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, calc(100% - clamp(40px, 9vw, 160px)));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(88px, 10vh, 128px) 0 clamp(72px, 9vh, 112px);
+  box-sizing: border-box;
+}
+
+#comp-lte8dpln .tcp-what-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #B8D4CD;
+  font: 500 11px/1.2 Arial, sans-serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+#comp-lte8dpln .tcp-what-index {
+  color: #F5F4F3;
+  font-size: 12px;
+}
+
+#comp-lte8dpln .tcp-what-rule {
+  height: 1px;
+  flex: 1;
+  max-width: 100px;
+  background: rgba(202, 230, 222, .45);
+}
+
+#comp-lte8dpln .tcp-what-intro {
+  max-width: 900px;
+  margin: clamp(54px, 8vh, 92px) auto clamp(58px, 8vh, 92px);
+  text-align: center;
+  will-change: opacity, transform;
+}
+
+#comp-lte8dpln .tcp-what-overline {
+  margin: 0 0 22px;
+  color: #B8D4CD;
+  font: 500 10px/1.4 Arial, sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+#comp-lte8dpln .tcp-what-heading {
+  margin: 0;
+  color: #F5F4F3;
+  font-family: inherit;
+  font-size: clamp(42px, 6.4vw, 88px);
+  font-weight: 300;
+  line-height: .99;
+  letter-spacing: -.055em;
+}
+
+#comp-lte8dpln .tcp-what-heading em {
+  color: #D2C5FF;
+  font-style: normal;
+}
+
+#comp-lte8dpln .tcp-what-description {
+  max-width: 1500px;
+  margin: 28px auto 0;
+  color: rgba(245, 244, 243, .83);
+  font-family: inherit;
+  font-size: clamp(25px, 2.5vw, 12px);
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: .045em;
+}
+
+#comp-lte8dpln .tcp-what-points {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(204, 231, 223, .3);
+}
+
+#comp-lte8dpln .tcp-what-point {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 18px;
+  min-height: 132px;
+  padding: 25px 22px;
+  border-bottom: 1px solid rgba(204, 231, 223, .3);
+  color: #F5F4F3;
+  box-sizing: border-box;
+  transition: border-color .25s, background .25s;
+  will-change: transform, opacity;
+}
+
+#comp-lte8dpln .tcp-what-point:nth-child(odd) {
+  border-right: 1px solid rgba(204, 231, 223, .3);
+}
+
+#comp-lte8dpln .tcp-what-point:hover {
+  border-color: rgba(210, 197, 255, .7);
+  background: rgba(245, 244, 243, .025);
+}
+
+#comp-lte8dpln .tcp-point-number {
+  align-self: start;
+  padding-top: 5px;
+  color: #B8D4CD;
+  font: 11px/1 Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+#comp-lte8dpln .tcp-what-point h3 {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(17px, 1.65vw, 23px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.02em;
+}
+
+#comp-lte8dpln .tcp-what-point p {
+  margin: 9px 0 0;
+  color: rgba(245, 244, 243, .66);
+  font: 12px/1.5 Arial, sans-serif;
+  letter-spacing: .035em;
+}
+
+#comp-lte8dpln .tcp-point-mark {
+  color: #D2C5FF;
+  font-size: 20px;
+  transition: transform .25s, color .25s;
+}
+
+#comp-lte8dpln .tcp-what-point:hover .tcp-point-mark {
+  transform: translate(3px, -3px);
+  color: #F5F4F3;
+}
+
+#comp-lte8dpln .tcp-what-orbit {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid rgba(184, 212, 205, .12);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+}
+
+#comp-lte8dpln .tcp-orbit-one {
+  width: min(76vw, 1050px);
+  height: 280px;
+  top: 15%;
+  right: -42%;
+}
+
+#comp-lte8dpln .tcp-orbit-two {
+  width: min(60vw, 820px);
+  height: 220px;
+  bottom: 3%;
+  left: -35%;
+  border-color: rgba(210, 197, 255, .12);
+}
+
+@media (max-width: 760px) {
+  #comp-lte8dpln .tcp-what-inner {
+    width: calc(100% - 36px);
+    padding: 76px 0 64px;
+  }
+
+  #comp-lte8dpln .tcp-what-intro {
+    margin: 54px auto 48px;
+    text-align: left;
+  }
+
+  #comp-lte8dpln .tcp-what-heading {
+    font-size: clamp(40px, 11vw, 64px);
+    line-height: 1.02;
+  }
+
+  #comp-lte8dpln .tcp-what-description {
+    margin-top: 22px;
+    font-size: 25px;
+    line-height: 1.75;
+  }
+
+  #comp-lte8dpln .tcp-what-points {
+    grid-template-columns: 1fr;
+  }
+
+  #comp-lte8dpln .tcp-what-point {
+    min-height: 112px;
+    padding: 22px 8px;
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
+    gap: 12px;
+  }
+
+  #comp-lte8dpln .tcp-what-point:nth-child(odd) {
+    border-right: 0;
+  }
+
+  #comp-lte8dpln .tcp-what-point h3 {
+    font-size: 18px;
+  }
+
+  #comp-lte8dpln .tcp-orbit-one {
+    right: -65%;
+    top: 10%;
+  }
+
+  #comp-lte8dpln .tcp-orbit-two {
+    left: -65%;
+    bottom: 4%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  #comp-lte8dpln .tcp-what-intro,
+  #comp-lte8dpln .tcp-what-point {
+    will-change: auto;
+  }
+
+  #comp-lte8dpln .tcp-what-point,
+  #comp-lte8dpln .tcp-point-mark {
+    transition: none;
+  }
+}
+
+
+/* Targeted repair: ONLY the TCP What We Are section. */
+#comp-lte8dpln {
+  background: linear-gradient(160deg, #071211 0%, #12302d 48%, #1b403c 100%) !important;
+  background-color: #102927 !important;
+  color: #F5F4F3 !important;
+}
+
+#comp-lte8dpln>.QG9w8P,
+#comp-lte8dpln>.QG9w8P [data-testid="colorUnderlay"],
+#comp-lte8dpln>.QG9w8P [id^="bgMedia_"] {
+  display: none !important;
+  background: transparent !important;
+}
+
+#comp-lte8dpln .tcp-what-inner {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#comp-lte8dpln .tcp-what-kicker,
+#comp-lte8dpln .tcp-what-overline,
+#comp-lte8dpln .tcp-what-index,
+#comp-lte8dpln .tcp-point-number {
+  color: #B8D4CD !important;
+}
+
+#comp-lte8dpln .tcp-what-heading {
+  display: block !important;
+  visibility: visible !important;
+  color: #F5F4F3 !important;
+}
+
+#comp-lte8dpln .tcp-what-heading em {
+  color: #25004B !important;
+}
+
+#comp-lte8dpln .tcp-what-description {
+  display: block !important;
+  visibility: visible !important;
+  color: rgba(245, 244, 243, .88) !important;
+}
+
+#comp-lte8dpln .tcp-what-point {
+  display: grid !important;
+  visibility: visible !important;
+  color: #F5F4F3 !important;
+}
+
+#comp-lte8dpln .tcp-what-point h3 {
+  display: block !important;
+  visibility: visible !important;
+  color: #F5F4F3 !important;
+  opacity: 1;
+}
+
+#comp-lte8dpln .tcp-what-point p {
+  display: block !important;
+  visibility: visible !important;
+  color: rgba(245, 244, 243, .72) !important;
+  opacity: 1;
+}
+
+#comp-lte8dpln .tcp-point-mark {
+  color: #D2C5FF !important;
+}
+
+#comp-lte8dpln .tcp-what-orbit {
+  z-index: 0 !important;
+}
+
+#comp-lte8dpln .tcp-what-intro,
+#comp-lte8dpln .tcp-what-point {
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  #comp-lte8dpln .tcp-what-intro,
+  #comp-lte8dpln .tcp-what-point {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* TCP — What We Are: move directly after the astronaut animation */
+#comp-lte8dpln {
+  margin-top: -55vh !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+@media (max-width: 760px) {
+  #comp-lte8dpln {
+    margin-top: -22vh !important;
+  }
+}
+
+/* TCP — WHAT WE ARE: WHITE EDITORIAL VERSION */
+#comp-lte8dpln {
+  background: #fff !important;
+  background-color: #fff !important;
+  color: #111 !important;
+}
+
+#comp-lte8dpln>.QG9w8P,
+#comp-lte8dpln>.QG9w8P [data-testid="colorUnderlay"],
+#comp-lte8dpln>.QG9w8P [id^="bgMedia_"] {
+  display: none !important;
+  background: transparent !important;
+}
+
+#comp-lte8dpln .tcp-what-kicker,
+#comp-lte8dpln .tcp-what-overline,
+#comp-lte8dpln .tcp-what-index,
+#comp-lte8dpln .tcp-what-heading,
+#comp-lte8dpln .tcp-what-description,
+#comp-lte8dpln .tcp-what-point,
+#comp-lte8dpln .tcp-what-point h3,
+#comp-lte8dpln .tcp-what-point p,
+#comp-lte8dpln .tcp-point-number,
+#comp-lte8dpln .tcp-point-mark {
+  color: #111 !important;
+}
+
+#comp-lte8dpln .tcp-what-heading em {
+  color: #111 !important;
+  font-style: normal;
+}
+
+#comp-lte8dpln .tcp-what-description {
+  color: rgba(17, 17, 17, .78) !important;
+}
+
+#comp-lte8dpln .tcp-what-points {
+  border-top-color: rgba(17, 17, 17, .42) !important;
+}
+
+#comp-lte8dpln .tcp-what-point {
+  border-bottom-color: rgba(17, 17, 17, .32) !important;
+}
+
+#comp-lte8dpln .tcp-what-point:nth-child(odd) {
+  border-right-color: rgba(17, 17, 17, .32) !important;
+}
+
+#comp-lte8dpln .tcp-what-point:hover {
+  border-color: rgba(17, 17, 17, .8) !important;
+  background: rgba(0, 0, 0, .025) !important;
+}
+
+#comp-lte8dpln .tcp-what-rule {
+  background: rgba(17, 17, 17, .5) !important;
+}
+
+#comp-lte8dpln .tcp-what-orbit,
+#comp-lte8dpln .tcp-orbit-two {
+  border-color: rgba(17, 17, 17, .09) !important;
+}
+
+#comp-lte8dpln .tcp-reveal-word {
+  display: inline-block;
+  clip-path: inset(0 0 100% 0);
+  opacity: .12;
+  transform: translate3d(0, .18em, 0);
+  will-change: clip-path, opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #comp-lte8dpln .tcp-reveal-word {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+/* TCP — targeted paragraph and cloud transition refinements */
+
+/* Paragraph-only reveal styling.
+   The existing heading reveal remains untouched. */
+#comp-lte8dpln .tcp-what-description .tcp-paragraph-word {
+  display: inline;
+  color: #b8b8b8;
+  will-change: color;
+}
+
+/* Blend the white section into the cloud instead of creating
+   a hard horizontal edge over the astronaut background. */
+#comp-lte8dpln {
+  background-color: transparent !important;
+  background-image: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.16) 18px,
+      rgba(255, 255, 255, 0.58) 42px,
+      rgba(255, 255, 255, 0.91) 64px,
+      #fff 86px,
+      #fff 100%) !important;
+}
+
+/* Shorter blend for mobile screens. */
+@media (max-width: 760px) {
+  #comp-lte8dpln {
+    background-image: linear-gradient(180deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 14px,
+        rgba(255, 255, 255, 0.66) 34px,
+        rgba(255, 255, 255, 0.94) 52px,
+        #fff 70px,
+        #fff 100%) !important;
+  }
+}
+
+/* Accessibility: keep paragraph text fully readable. */
+@media (prefers-reduced-motion: reduce) {
+  #comp-lte8dpln .tcp-what-description .tcp-paragraph-word {
+    color: #111 !important;
+    will-change: auto;
+  }
+}
+
+/* Paragraph-only width and scroll-reveal styling */
+#comp-lte8dpln .tcp-what-description {
+  width: 92vw !important;
+  max-width: none !important;
+  margin-left: calc((100% - 92vw) / 2) !important;
+  margin-right: 0 !important;
+}
+
+#comp-lte8dpln .tcp-what-description .tcp-paragraph-word {
+  display: inline-block;
+  color: #111111 !important;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0.12;
+  transform: translate3d(0, 0.12em, 0);
+  will-change: clip-path, opacity, transform;
+}
+
+/* Requested heading accent color */
+#comp-lte8dpln .tcp-what-heading em {
+  color: #b200ed !important;
+  font-style: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #comp-lte8dpln .tcp-what-description .tcp-paragraph-word {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+/* Match the homepage hero font — paragraph only */
+#comp-lte8dpln .tcp-what-description,
+#comp-lte8dpln .tcp-what-description .tcp-paragraph-word {
+  font-family:
+    wfont_1d32d8_19459c7b05ca467ebad6718ecdc204c4,
+    wf_19459c7b05ca467ebad6718ec,
+    orig_boowie !important;
+}
+
+/* TCP — Match principle card typography to homepage hero */
+#comp-lte8dpln .tcp-what-point,
+#comp-lte8dpln .tcp-what-point h3,
+#comp-lte8dpln .tcp-what-point p,
+#comp-lte8dpln .tcp-point-number {
+  font-family:
+    wfont_1d32d8_19459c7b05ca467ebad6718ecdc204c4,
+    wf_19459c7b05ca467ebad6718ec,
+    orig_boowie !important;
+}
+
+/* Bold only the four principle titles */
+#comp-lte8dpln .tcp-what-point h3 {
+  font-weight: 700 !important;
+}
+
+/* Highlight only the brand name in the paragraph */
+#comp-lte8dpln .tcp-what-description
+.tcp-paragraph-word.tcp-brand-name-word {
+  color: #b200ed !important;
+}
