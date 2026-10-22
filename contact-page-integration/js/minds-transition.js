@@ -37,9 +37,13 @@
 
     const rect = mindsSection.getBoundingClientRect();
     const alreadyAtMinds = rect.top <= 2 && rect.bottom >= window.innerHeight * 0.2;
+
     if (alreadyAtMinds && typeof window.__tcpReplayMindsTransition === 'function') {
       window.__tcpReplayMindsTransition();
+    } else {
+      window.__tcpMindsNavTransitionPending = true;
     }
+
     mindsSection.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
   }, true);
 
@@ -204,14 +208,23 @@
     let strike = null;
     let raf = 0;
     let wasInTriggerBand = false;
+    let hasPlayedEntryTransition = false;
+    let lastScrollY = window.scrollY;
+    let firstFrameChecked = false;
     const STRIKE_MS = 380;
 
-    // Replaying resets the radial mask and restarts the exact same laser animation.
+    // The effect is unchanged; only its permitted triggers are controlled here.
     const triggerTransition = (now = performance.now()) => {
       strike = now;
+      hasPlayedEntryTransition = true;
       mindsSection.style.setProperty('--tcp-minds-reveal-radius', '0px');
     };
-    window.__tcpReplayMindsTransition = triggerTransition;
+
+    // Explicit navbar navigation may replay the effect.
+    window.__tcpReplayMindsTransition = (now = performance.now()) => {
+      window.__tcpMindsNavTransitionPending = false;
+      triggerTransition(now);
+    };
 
     function frame(now) {
       raf = requestAnimationFrame(frame);
@@ -226,11 +239,31 @@
       U.uFit.value = [ox, oy, fit];
       U.uRect.value = [stageRect.top, stageRect.height];
 
-      // Fire whenever Section 04 enters the viewport band at the top. Resetting the
-      // band after exit makes the transition replay on re-entry, including after reload.
+      // Allowed triggers:
+      // 1. First downward entry into Minds from the page above (Output).
+      // 2. Explicit navigation using the Minds navbar link.
+      // 3. A fresh page load resets this per-page state.
+      // Ordinary scrolling back into Minds must not replay the effect.
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY + 1;
       const inTriggerBand = stageRect.top <= 2 && stageRect.bottom >= H * 0.2;
-      if (inTriggerBand && !wasInTriggerBand) triggerTransition(now);
+      const enteredTriggerBand = inTriggerBand && !wasInTriggerBand;
+      const directNavPending = window.__tcpMindsNavTransitionPending === true;
+      const restoredIntoMinds = !firstFrameChecked && inTriggerBand;
+
+      if (directNavPending && inTriggerBand) {
+        window.__tcpMindsNavTransitionPending = false;
+        triggerTransition(now);
+      } else if (
+        !hasPlayedEntryTransition &&
+        (restoredIntoMinds || (enteredTriggerBand && scrollingDown))
+      ) {
+        triggerTransition(now);
+      }
+
+      firstFrameChecked = true;
       wasInTriggerBand = inTriggerBand;
+      lastScrollY = currentScrollY;
 
       const startY = -24, endY = H;
       const elapsed = strike === null ? -1 : now - strike;
