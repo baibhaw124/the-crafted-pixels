@@ -420,3 +420,21 @@
     animation: none;
   }
 }
+
+
+/* TCP MOBILE NAV PORTAL FIX */
+@media (max-width: 760px) {
+  .tcp-nav-links.tcp-nav-links-floating.is-open {
+    position: fixed !important;
+    top: var(--tcp-menu-top, 100px) !important;
+    left: var(--tcp-menu-left, 6px) !important;
+    right: auto !important;
+    width: var(--tcp-menu-width, calc(100vw - 12px)) !important;
+    max-height: calc(100vh - var(--tcp-menu-top, 100px) - 20px) !important;
+    max-height: calc(100dvh - var(--tcp-menu-top, 100px) - 20px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    z-index: 100001 !important;
+    display: flex !important;
+  }
+}

@@ -522,3 +522,11 @@
 .tcp-paragraph-word.tcp-brand-name-word {
   color: #b200ed !important;
 }
+
+
+/* TCP REMOVE DECORATIVE ORBITS */
+#comp-lte8dpln .tcp-what-orbit,
+#comp-lte8dpln .tcp-orbit-one,
+#comp-lte8dpln .tcp-orbit-two {
+  display: none !important;
+}
