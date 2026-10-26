@@ -1059,3 +1059,18 @@
 #projects .tcp-output-carousel-host[data-card-hover="true"] {
   cursor: pointer;
 }
+
+/* TCP MOBILE OUTPUT SPEEDUP — desktop animations unchanged */
+@media screen and (max-width: 760px) {
+  #projects .flash-image.play {
+    animation-duration: 1.65s !important;
+  }
+
+  #projects .flash-overlay.play {
+    animation-duration: 1.45s !important;
+  }
+
+  #projects .tcp-output-cloud-transition.play {
+    animation-duration: 1.35s !important;
+  }
+}

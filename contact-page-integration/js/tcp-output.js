@@ -98,7 +98,7 @@ const options = {
 
 // The carousel rises once the image has fully settled (end of its flash animation).
 // This is only a safety fallback in case that animation event never fires (ms).
-const FALLBACK_DELAY = 4400;
+const FALLBACK_DELAY = window.matchMedia('(max-width: 760px)').matches ? 2200 : 4400;
 
 const BEND_PRESETS = {
   liquid: {

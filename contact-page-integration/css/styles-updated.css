@@ -27739,3 +27739,16 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
   text-align: left !important;
   text-indent: 0 !important;
 }
+
+/* TCP MOBILE HERO SPACING POLISH */
+@media screen and (max-width: 750px) {
+  /* Move astronaut down so the Contact Us button remains clear. */
+  #comp-lte8dpl4 {
+    transform: translateY(42px) !important;
+  }
+
+  /* Align the P in PIXELS with the T in THE CRAFTED. */
+  #comp-lte8dpkj h1 .tcp-hero-line:nth-child(2) {
+    padding-left: 32px !important;
+  }
+}
