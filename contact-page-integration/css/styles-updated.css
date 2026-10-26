@@ -27791,3 +27791,27 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
     -webkit-backdrop-filter: blur(6px);
   }
 }
+
+/* TCP MOBILE HERO MICRO-ALIGNMENT FIX */
+@media screen and (max-width: 750px) {
+
+  /* Move the astronaut down without changing its animation. */
+  #comp-lte8dpl4 {
+    top: calc(28.2% + 38px) !important;
+    transform: none !important;
+  }
+
+  /* Remove all extra indentation from both hero title lines. */
+  #comp-lte8dpkj.wixui-rich-text h1.font_2 > span.tcp-hero-line,
+  #comp-lte8dpkj.wixui-rich-text h1.font_2 > span.tcp-hero-line:nth-of-type(2) {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+  }
+}
