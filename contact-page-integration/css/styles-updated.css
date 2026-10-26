@@ -27841,3 +27841,16 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
     -webkit-backdrop-filter: none !important;
   }
 }
+/* TCP — Desktop hero title micro-alignment */
+@media screen and (min-width: 751px) {
+  #comp-lte8dpkj h1 .tcp-hero-line:nth-child(2) {
+    padding-left: 7px !important;
+  }
+}
+
+/* TCP LAPTOP HERO MICRO-ALIGNMENT */
+@media screen and (min-width: 1024px) {
+  #comp-lte8dpkj h1 .tcp-hero-line:nth-child(2) {
+    padding-left: 7px !important;
+  }
+}
