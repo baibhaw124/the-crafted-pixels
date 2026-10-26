@@ -27752,3 +27752,42 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
     padding-left: 32px !important;
   }
 }
+
+/* TCP MOBILE HERO FINAL FIX */
+@media screen and (max-width: 750px) {
+
+  /* Align the T in THE CRAFTED and P in PIXELS exactly. */
+  #comp-lte8dpkj h1 .tcp-hero-line,
+  #comp-lte8dpkj h1 .tcp-hero-line:nth-child(2) {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+  }
+
+  /* Remove the previous astronaut offset. */
+  #comp-lte8dpl4 {
+    transform: none !important;
+    z-index: 1 !important;
+  }
+
+  /* Keep the Contact Us button above the astronaut image. */
+  #comp-lupe3wk3,
+  #comp-luhxbq8a {
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  #comp-luhxbq8a > a {
+    position: relative !important;
+    z-index: 31 !important;
+    background-color: rgba(4, 25, 24, 0.72) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
