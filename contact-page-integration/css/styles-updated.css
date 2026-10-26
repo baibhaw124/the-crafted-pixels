@@ -27797,7 +27797,7 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
 
   /* Move the astronaut down without changing its animation. */
   #comp-lte8dpl4 {
-    top: calc(28.2% + 38px) !important;
+    top: calc(28.2% + 90px) !important;
     transform: none !important;
   }
 
@@ -27813,5 +27813,31 @@ img[alt="Floating astronaut with metallic silver astronaut suit."] {
     padding-right: 0 !important;
     text-align: left !important;
     text-indent: 0 !important;
+  }
+}
+/* TCP MOBILE — Astronaut in front of Contact Us */
+@media screen and (max-width: 750px) {
+  /* Bring the astronaut above the button */
+  #comp-lte8dpl4 {
+    z-index: 50 !important;
+  }
+
+  /* Keep the Contact Us button behind the astronaut */
+  #comp-lupe3wk3 {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  #comp-luhxbq8a {
+    position: relative !important;
+    z-index: 6 !important;
+  }
+
+  #comp-luhxbq8a > a {
+    position: relative !important;
+    z-index: 6 !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
